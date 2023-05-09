@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq.Expressions;
+using System.Xml.Linq;
 
 class Program
 {
@@ -20,9 +23,9 @@ class Program
             case 0: break;
 
             case 1:
-                int[] array1 = readArray();
+                double[] array1 = readArray();
                 double result = geometricMean(array1);
-                Console.WriteLine("Середнє геометричне: " + result);
+                Console.WriteLine("Середнє геометричне: " + Math.Round(result, 5));
                 menu();
                 break;
 
@@ -31,17 +34,29 @@ class Program
                 Console.Write("\nКоординати вектора: ");
                 foreach (double element in vector1)
                 {
-                    Console.Write(element + "  ");
+                    Console.Write(Math.Round(element, 5) + "  ");
                 }
                 Console.WriteLine();
                 menu();
                 break;
 
             case 3:
-                int[] array2 = readArray();
+                double[] tempArray = readArray();
+                int[] array2 = new int[tempArray.Length];
+
+                for (int i = 0; i < tempArray.Length; i++)
+                {
+                    array2[i] = Convert.ToInt32(tempArray[i]);
+                }
+
                 int[] array2Sorted = sortArrayInReverse(array2);
                 Console.WriteLine("відсортований масив: ");
-                printArray(array2Sorted);
+
+                foreach (int element in array2Sorted)
+                {
+                    Console.Write(element + "  ");
+                }
+
                 menu();
                 break;
 
@@ -52,7 +67,7 @@ class Program
                 menu();
                 break;
 
-            case 5 :
+            case 5:
                 int[,] matrix2 = readMatrix();
                 int n = matrix2.GetLength(0);
                 int m = matrix2.GetLength(1);
@@ -72,7 +87,7 @@ class Program
                 menu();
                 break;
 
-            case 6 :
+            case 6:
                 int[,] matrix3 = readMatrix();
                 matrix3 = sortMatrixRows(matrix3);
                 Console.WriteLine("Матриця з відсортованими рядками: ");
@@ -99,33 +114,38 @@ class Program
      "\n0. (0.0) Завершити роботу.)");
     }
 
-    int[] readArray()
+    double[] readArray()
     {
-        Console.WriteLine("Введіть розмірність масиву: ");
+        Console.WriteLine("Введіть довжину масиву: ");
         int size = Convert.ToInt32(Console.ReadLine());
-        int[] array = new int[size];
+        double[] array = new double[size];
         Console.WriteLine("Введіть елементи масиву: ");
 
         for (int i = 0; i < size; i++)
         {
-            array[i] = Convert.ToInt32(Console.ReadLine());
+            array[i] = Convert.ToDouble(Console.ReadLine());
         }
         return array;
     }
 
-    void printArray(int[] array)
+    void printArray(double[] array)
     {
         foreach (double element in array)
         {
-            Console.Write(element + "  ");
+            Console.Write(Math.Round(element, 5) + "  ");
         }
     }
 
-    double geometricMean(int[] array)
+    double geometricMean(double[] array)
     {
         double GM = 1;
         for (int i = 0; i < array.Length; i++)
         {
+            if (array[i] <= 0)
+            {
+                Console.WriteLine("Числа повинні бути додатні");
+                return 0.0;
+            }
             GM *= array[i];
         }
         return Math.Pow(GM, 1.0 / array.Length);
@@ -222,7 +242,7 @@ class Program
 
     int searchElement(int[] array, int element)
     {
-        int index = Array.IndexOf(array, element) ;
+        int index = Array.IndexOf(array, element);
         return index;
     }
 
@@ -230,7 +250,7 @@ class Program
     {
         int n = matrix.GetLength(0);
         int m = matrix.GetLength(1);
-        int[,] sortedMatrix = new int[n,m];
+        int[,] sortedMatrix = new int[n, m];
         Dictionary<int, int> characteristics = new Dictionary<int, int>();
 
         for (int i = 0; i < n; i++)
