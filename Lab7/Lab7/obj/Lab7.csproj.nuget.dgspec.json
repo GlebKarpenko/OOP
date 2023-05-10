@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab7\\Lab7\\Lab7.csproj": {}
+    "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\Lab7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab7\\Lab7\\Lab7.csproj": {
+    "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\Lab7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab7\\Lab7\\Lab7.csproj",
+        "projectUniqueName": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\Lab7.csproj",
         "projectName": "Lab7",
-        "projectPath": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab7\\Lab7\\Lab7.csproj",
-        "packagesPath": "C:\\Users\\Lenovo T420\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab7\\Lab7\\obj\\",
+        "projectPath": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\Lab7.csproj",
+        "packagesPath": "C:\\Users\\glebk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo T420\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glebk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
