@@ -92,84 +92,119 @@ namespace Lab7
 
         void getPerimeter(string parameter)
         {
-            if (parameter == "-e")
-                t2.printPerimeter();
-
-            if (parameter == "-i")
-                t3.printPerimeter();
-
-            if (parameter == "-r")
-                t4.printPerimeter();
-
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+            try
             {
-                t1.printPerimeter();
+                if (parameter == "-e")
+                    t2.printPerimeter();
+
+                if (parameter == "-i")
+                    t3.printPerimeter();
+
+                if (parameter == "-r")
+                    t4.printPerimeter();
+
+                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+                {
+                    t1.printPerimeter();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не вдалося виконати команду");
             }
         }
 
         void getArea(string parameter)
         {
-            if (parameter == "-e")
-                t2.calculateArea();
-
-            if (parameter == "-i")
-                t3.calculateArea();
-
-            if (parameter == "-r")
-                t4.calculateArea();
-
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+            try
             {
-                t1.calculateArea();
+                if (parameter == "-e")
+                    t2.calculateArea();
+
+                if (parameter == "-i")
+                    t3.calculateArea();
+
+                if (parameter == "-r")
+                    t4.calculateArea();
+
+                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+                {
+                    t1.calculateArea();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не вдалося виконати команду");
             }
         }
 
         void getInnerRadius(string parameter)
         {
-            if (parameter == "-e")
-                t2.calculateInnerRadius();
-
-            if (parameter == "-i")
-                t3.calculateInnerRadius();
-
-            if (parameter == "-r")
-                t4.calculateInnerRadius();
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+            try
             {
-                t1.calculateInnerRadius();
+                if (parameter == "-e")
+                    t2.calculateInnerRadius();
+
+                if (parameter == "-i")
+                    t3.calculateInnerRadius();
+
+                if (parameter == "-r")
+                    t4.calculateInnerRadius();
+                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+                {
+                    t1.calculateInnerRadius();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не вдалося виконати команду");
             }
         }
 
         void getOuterRadius(string parameter)
         {
-            if (parameter == "-e")
-                t2.calculateOuterRadius();
-
-            if (parameter == "-i")
-                t3.calculateOuterRadius();
-
-            if (parameter == "-r")
-                t4.calculateOuterRadius();
-
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+            try
             {
-                t1.calculateOuterRadius();
+                if (parameter == "-e")
+                    t2.calculateOuterRadius();
+
+                if (parameter == "-i")
+                    t3.calculateOuterRadius();
+
+                if (parameter == "-r")
+                    t4.calculateOuterRadius();
+
+                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+                {
+                    t1.calculateOuterRadius();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не вдалося виконати команду");
             }
         }
 
         void getAll(string parameter)
         {
-            if (parameter == "-e")
-                t2.printAllMembers();
-
-            if (parameter == "-i")
-                t3.printAllMembers();
-
-            if (parameter == "-r")
-                t4.printAllMembers();
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+            try
             {
-                t1.printAllMembers();
+                if (parameter == "-e")
+                    t2.printAllMembers();
+
+                if (parameter == "-i")
+                    t3.printAllMembers();
+
+                if (parameter == "-r")
+                    t4.printAllMembers();
+                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
+                {
+                    t1.printAllMembers();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не вдалося виконати команду");
             }
         }
 
@@ -181,16 +216,16 @@ namespace Lab7
                 if (nOfsides == 1)
                 {
                     double side = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Данi внесенi.");
                     Triangle t = new Triangle(side);
-                    Console.WriteLine("Трикутник створено.");
                     return t;
                 }
                 if (nOfsides == 2)
                 {
                     double side1 = Convert.ToDouble(Console.ReadLine());
                     double side2 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Данi внесенi.");
                     Triangle t = new Triangle(side1, side2);
-                    Console.WriteLine("Трикутник створено.");
                     return t;
                 }
                 if (nOfsides == 3)
@@ -198,8 +233,8 @@ namespace Lab7
                     double side1 = Convert.ToDouble(Console.ReadLine());
                     double side2 = Convert.ToDouble(Console.ReadLine());
                     double side3 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Данi внесенi.");
                     Triangle t = new Triangle(side1, side2, side3);
-                    Console.WriteLine("Трикутник створено.");
                     return t;
                 }
             }
