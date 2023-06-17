@@ -1,289 +1,85 @@
 ﻿using System;
-using System.Reflection.Metadata;
+using System.Configuration;
+using System.Linq;
 
 namespace Lab7
 {
-    class Menu
+    class MainMenu
     {
-        IScaleneTriangle t1;
-        IEquilateralTriangle t2;
-        IIsoscelesTriangle t3;
-        IRightTriangle t4;
+        //набір всіх повідомлень меню, які містяться в app.config
+        Dictionary<string, string> menuMessages = new Dictionary<string, string>();
 
-        public void mainMenu()
+        //основне меню використовується для вводу користувачем команда та передання на їх обробку
+        public MainMenu()
+        {
+            menuMessages.Add("instruction-message", ConfigurationManager.AppSettings["work-instruction"]);
+        }
+
+        //початок головного меню, спочатку виводиться коротка інструкція по роботі з програмою
+        public void start()
+        {
+            Console.WriteLine(menuMessages["instruction-message"]);
+            CommandInput userInput = new CommandInput();
+
+
+        }
+    }
+
+    //об'єкт обробляє входження текстових даних від користувача та файлу кофігурації
+    class Input
+    {
+        string value;
+
+        public Input(string input)
+        {
+            value = input;
+        }
+
+        public string get()
+        {
+            return value;
+        }
+
+        //повертає отриманий рядок як масив значень
+        public string[] getAsArray()
+        {
+            char[] removables1 = {'[', '\''};
+            char[] removables2 = { '\'', ']'};
+
+            string[] result = value.Trim(removables1).Trim(removables2).Split("', '");
+            return result;
+        }
+    }
+
+    class InputReader
+    {
+        protected Input input;
+
+        public InputReader()
         {
             Console.Write(">");
-            string input = Console.ReadLine();
-            input += " ";
-            string[] fullCommand = input.Split(" ");
-            string command = fullCommand[0];
-            string parameter = fullCommand[1].Trim();
+            input = new Input(Console.ReadLine());
+        }
+    }
 
-            if (command == "help")
-            {
-                helpMenu(); 
-                mainMenu();
-            }
+    class CommandInput : InputReader
+    {
+        //об'єкт вводу команд містить введену команду та набір усіх можливих
+        //команд і параметрів для перевірки на правильність вводу
+        Command command;
+        AllCommands possibleCommands;
 
-            if (command == "exit")
+        public CommandInput()
+        {
+            command = new Command(input.get());
+            possibleCommands = new AllCommands();
+
+            if (!command.existsAsCommand(possibleCommands))
             {
+                string commandError = ConfigurationManager.AppSettings["wrong-command"];
+                Console.WriteLine(commandError);
                 return;
             }
-
-            if (command == "create")
-            {
-                createUndefinedTriangle(parameter); 
-                mainMenu();
-            }
-
-            if (command == "perimeter")
-            {
-                getPerimeter(parameter); 
-                mainMenu();
-            }
-
-            if (command == "area")
-            {
-                getArea(parameter); 
-                mainMenu();
-            }
-
-            if (command == "r")
-            {
-                getInnerRadius(parameter);
-                mainMenu();
-            }
-
-            if (command == "R")
-            {
-                getOuterRadius(parameter); 
-                mainMenu();
-            }
-
-            if (command == "get")
-            {
-                getAll(parameter);
-                mainMenu();
-            }
-
-            else
-            {
-                printWrongCommandError();
-                mainMenu();
-            }
-        }
-
-        void createUndefinedTriangle(string parameter)
-        {
-            if (parameter == "-e")
-                t2 = createTriangle(1);
-
-            if (parameter == "-i")
-                t3 = createTriangle(2);
-
-            if (parameter == "-r")
-                t4 = createTriangle(3);
-
-            if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-            {
-                t1 = createTriangle(3);
-            }
-        }
-
-        void getPerimeter(string parameter)
-        {
-            try
-            {
-                if (parameter == "-e")
-                    t2.printPerimeter();
-
-                if (parameter == "-i")
-                    t3.printPerimeter();
-
-                if (parameter == "-r")
-                    t4.printPerimeter();
-
-                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-                {
-                    t1.printPerimeter();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Не вдалося виконати команду");
-            }
-        }
-
-        void getArea(string parameter)
-        {
-            try
-            {
-                if (parameter == "-e")
-                    t2.calculateArea();
-
-                if (parameter == "-i")
-                    t3.calculateArea();
-
-                if (parameter == "-r")
-                    t4.calculateArea();
-
-                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-                {
-                    t1.calculateArea();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Не вдалося виконати команду");
-            }
-        }
-
-        void getInnerRadius(string parameter)
-        {
-            try
-            {
-                if (parameter == "-e")
-                    t2.calculateInnerRadius();
-
-                if (parameter == "-i")
-                    t3.calculateInnerRadius();
-
-                if (parameter == "-r")
-                    t4.calculateInnerRadius();
-                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-                {
-                    t1.calculateInnerRadius();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Не вдалося виконати команду");
-            }
-        }
-
-        void getOuterRadius(string parameter)
-        {
-            try
-            {
-                if (parameter == "-e")
-                    t2.calculateOuterRadius();
-
-                if (parameter == "-i")
-                    t3.calculateOuterRadius();
-
-                if (parameter == "-r")
-                    t4.calculateOuterRadius();
-
-                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-                {
-                    t1.calculateOuterRadius();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Не вдалося виконати команду");
-            }
-        }
-
-        void getAll(string parameter)
-        {
-            try
-            {
-                if (parameter == "-e")
-                    t2.printAllMembers();
-
-                if (parameter == "-i")
-                    t3.printAllMembers();
-
-                if (parameter == "-r")
-                    t4.printAllMembers();
-                if (parameter != "-e" && parameter != "-i" && parameter != "-r")
-                {
-                    t1.printAllMembers();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Не вдалося виконати команду");
-            }
-        }
-
-        Triangle createTriangle(int nOfsides)
-        {
-            try
-            {
-                Console.WriteLine("Введiть сторону/и трикутника: ");
-                if (nOfsides == 1)
-                {
-                    double side = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Данi внесенi.");
-                    Triangle t = new Triangle(side);
-                    return t;
-                }
-                if (nOfsides == 2)
-                {
-                    double side1 = Convert.ToDouble(Console.ReadLine());
-                    double side2 = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Данi внесенi.");
-                    Triangle t = new Triangle(side1, side2);
-                    return t;
-                }
-                if (nOfsides == 3)
-                {
-                    double side1 = Convert.ToDouble(Console.ReadLine());
-                    double side2 = Convert.ToDouble(Console.ReadLine());
-                    double side3 = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Данi внесенi.");
-                    Triangle t = new Triangle(side1, side2, side3);
-                    return t;
-                }
-            }
-            catch
-            {
-                printCreateTriangleError();
-            }
-            return null;
-        }
-
-        void printTriangleDoesNotExist()
-        {
-            Console.WriteLine("Трикутник не було створено, для виконання роботи з " +
-                "трикутником потрiбно спочатку його ствоити.");
-        }
-
-        void printCreateTriangleError()
-        {
-            Console.WriteLine("Не вдалося створити трикутник, перевiрте введенi данi");
-        }
-
-        void printWrongCommandError()
-        {
-            Console.WriteLine("Не правильно введено команду спробуйте ще раз або введiть" +
-            " 'help' для отримання iнструкцiї по використанню");
-        }
-
-        void helpMenu()
-        {
-            Console.WriteLine("\nПрограма призначена для демонстрацiї формул обчислення периметра, " +
-                "площi, радiуса вписаного та описаного кола рiзностороннiх, рiвностороннiх, " +
-                "рiвнобедрених та прямокутних трикутникiв.");
-            Console.WriteLine("\nСписок команд: " +
-                "\nhelp -- для отримання допомоги," +
-                "\nexit -- для виходу з програми" +
-                "\n\ncreate -- для створення рiзностороннього трикутника" +
-                "\nperimeter -- для виведення периметру останнього рiзностороннього трикутника" +
-                "\narea -- для взаєможiї з набором формул для площi рiзностороннього трикутника" +
-                "\nr -- для взаємодiї з набором форул для вписаного в рiзностороннiй трикутник кола" +
-                "\nR -- для взаємодiї з набором форул для описаного навколо рiзностороннього трикутника кола" +
-                "\n\nget -- для виводу iнформацiї про останнi створенi трикутники: знечення довжин сторiн, периметру, площi та радiусiв описаного, вписаного кiл. " +
-                "Дана iнформацiя не буде виведена, якщо перед цим не було запущено команди на її " +
-                "обрахунок(окрiм периметру)" +
-                "\n\nДля взаємодiї з особливими типами трикутникiв додайте параметри:" +
-                "\n-e -- для рiвностороннього трикутника" +
-                "\n-i -- для рiвнобiчного трикутника" +
-                "\n-r -- для прямокутного трикутника" +
-                "\nПараметри можна додати до команд 'create', 'perimeter', 'area', 'r', 'R', 'get'" +
-                "\n");
         }
     }
 }

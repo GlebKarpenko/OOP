@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo T420\\.nuget\\packages\\": {}
+    "C:\\Users\\glebk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab8\\Lab8\\Lab8.csproj",
+      "projectUniqueName": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab8\\Lab8\\Lab8.csproj",
       "projectName": "Lab8",
-      "projectPath": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab8\\Lab8\\Lab8.csproj",
-      "packagesPath": "C:\\Users\\Lenovo T420\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo T420\\std\\source\\repos\\C#projects\\OOP\\Lab8\\Lab8\\obj\\",
+      "projectPath": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab8\\Lab8\\Lab8.csproj",
+      "packagesPath": "C:\\Users\\glebk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab8\\Lab8\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lenovo T420\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\glebk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

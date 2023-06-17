@@ -287,4 +287,53 @@ namespace Lab7
             Console.WriteLine();
         }
     }
+
+    //рівносторонній трикутник
+    public interface IEquilateralTriangle
+    {
+        double side { set; get; }
+        void printPerimeter();
+        void calculateArea();
+        void calculateInnerRadius();
+        void calculateOuterRadius();
+        void printAllMembers();
+    }
+
+    //рівнобедрений трикутник
+    public interface IIsoscelesTriangle
+    {
+        double side { set; get; }
+        double baseSide { get; set; }
+        void printPerimeter();
+        void calculateArea();
+        void calculateInnerRadius();
+        void calculateOuterRadius();
+        void printAllMembers();
+    }
+
+    //прямокутний трикутник
+    public interface IRightTriangle
+    {
+        double side1 { set; get; }
+        double side2 { set; get; }
+        double side3 { set; get; }
+        void printPerimeter();
+        void calculateArea();
+        void calculateInnerRadius();
+        void calculateOuterRadius();
+        void printAllMembers();
+    }
+
+    //різносторонній трикутник
+    public interface IScaleneTriangle
+    {
+        double side1 { set; get; }
+        double side2 { get; set; }
+        double side3 { get; set; }
+        void printPerimeter();
+        void calculateArea();
+        void calculateInnerRadius();
+        void calculateOuterRadius();
+        void printAllMembers();
+    }
 }
