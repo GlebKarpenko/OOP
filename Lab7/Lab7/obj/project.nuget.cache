@@ -1,18 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZO8B8HIpFjCC8ztVe6NtRXcNnzsl8QID95ZXIP0+eW1NyULOW3XoU5Qp4iaNhKPufMHEPpLKHwXDMICWMohzsQ==",
+  "dgSpecHash": "Xygd234DHVOIUYOpDOWeOMXMB3zZkbtNlXbgsGEIkeHfZ4y2N0G9jbRtMmh7MVGjLiF5z9nhIHcZsGg8wB21ig==",
   "success": true,
   "projectFilePath": "C:\\Users\\glebk\\std\\source\\repos\\OOP\\Lab7\\Lab7\\Lab7.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\glebk\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\glebk\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

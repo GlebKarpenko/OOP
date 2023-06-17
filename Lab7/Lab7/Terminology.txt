@@ -1,6 +1,0 @@
-equilateral triangle - рівносторонній трикутник
-isosceles triangle - рівнобедрений трикутник
-right triangle - прямокутний трикутник
-scalene triangle - різносторонній трикутник
-inner circle - вписане коло
-outer circle - описане коло

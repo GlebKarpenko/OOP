@@ -11,9 +11,9 @@ class Program
 
         Program main = new Program();
         Console.WriteLine("\nВикористаємо масив.");
-        Console.WriteLine("Кiлькiсть прописних лiтер в файлi 'input.txt': " + main.countUppercase(symbols));
+        Console.WriteLine("Кількість прописних літер в файлі 'input.txt': " + main.countUppercase(symbols));
         Console.WriteLine("\nВикористаємо список.");
-        Console.WriteLine("Кiлькiсть прописних лiтер в файлi 'input.txt': " + main.countUppercase(list));
+        Console.WriteLine("Кількість прописних літер в файлі 'input.txt': " + main.countUppercase(list));
     }
 
     int countUppercase(char[] symbols)
